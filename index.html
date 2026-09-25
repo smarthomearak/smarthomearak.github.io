@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SmartHome | هوشمندسازی ساختمان در اراک</title>
+
+  <meta name="description" content="SmartHome ارائه‌دهنده خدمات هوشمندسازی ساختمان در اراک؛ روشنایی هوشمند، امنیت، دوربین، کنترل دما و تجهیزات هوشمند.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #07111f;
+      color: #ffffff;
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #35e0c0;
+    }
+
+    .logo span {
+      color: #ffffff;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      color: #d7e2ee;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #35e0c0;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(0, 225, 190, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 30%, rgba(100, 70, 255, 0.18), transparent 30%),
+        linear-gradient(135deg, #07111f, #0b1830);
+    }
+
+    .hero-content {
+      max-width: 750px;
+      padding: 80px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background: rgba(53, 224, 192, 0.12);
+      color: #35e0c0;
+      border: 1px solid rgba(53, 224, 192, 0.25);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #35e0c0;
+    }
+
+    .hero p {
+      color: #b8c5d4;
+      font-size: 18px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 23px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #35e0c0;
+      color: #06131e;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* Sections */
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #9eacbc;
+    }
+
+    /* Services */
+    .services {
+      background: #091526;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service {
+      padding: 28px;
+      border-radius: 20px;
+      min-height: 245px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service:hover {
+      transform: translateY(-7px);
+    }
+
+    .service:nth-child(1) {
+      background: linear-gradient(135deg, #123c52, #0d2436);
+    }
+
+    .service:nth-child(2) {
+      background: linear-gradient(135deg, #30205c, #171d40);
+    }
+
+    .service:nth-child(3) {
+      background: linear-gradient(135deg, #55311f, #291b19);
+    }
+
+    .service:nth-child(4) {
+      background: linear-gradient(135deg, #153e31, #10251f);
+    }
+
+    .service:nth-child(5) {
+      background: linear-gradient(135deg, #493d16, #272315);
+    }
+
+    .service:nth-child(6) {
+      background: linear-gradient(135deg, #40204d, #25162f);
+    }
+
+    .service:nth-child(7) {
+      background: linear-gradient(135deg, #193f50, #112631);
+    }
+
+    .service:nth-child(8) {
+      background: linear-gradient(135deg, #3c234d, #21172c);
+    }
+
+    .service:nth-child(9) {
+      background: linear-gradient(135deg, #164c42, #102b28);
+    }
+
+    .service:nth-child(10) {
+      background: linear-gradient(135deg, #4d2630, #29191e);
+    }
+
+    .service-icon {
+      width: 65px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.1);
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .service p {
+      color: #c0cad5;
+      font-size: 14px;
+    }
+
+    /* Why */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      background: #0d1b2d;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .why-card strong {
+      display: block;
+      font-size: 20px;
+      margin: 12px 0 8px;
+    }
+
+    .why-card p {
+      color: #aebaca;
+      font-size: 14px;
+    }
+
+    .why-icon {
+      font-size: 35px;
+    }
+
+    /* Portfolio */
+    .portfolio {
+      background: #091526;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .portfolio-card {
+      min-height: 220px;
+      border-radius: 20px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .portfolio-card:nth-child(1) {
+      background: linear-gradient(135deg, #075985, #0f172a);
+    }
+
+    .portfolio-card:nth-child(2) {
+      background: linear-gradient(135deg, #6d28d9, #1e1b4b);
+    }
+
+    .portfolio-card:nth-child(3) {
+      background: linear-gradient(135deg, #be123c, #3f1020);
+    }
+
+    .portfolio-card h3 {
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+
+    .portfolio-card p {
+      color: #d3dbe4;
+      font-size: 13px;
+    }
+
+    /* About */
+    .about-box {
+      background: linear-gradient(135deg, #0d1c30, #101f35);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 25px;
+      padding: 45px;
+    }
+
+    .about-box h2 {
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: #b9c5d2;
+      margin-bottom: 12px;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    details {
+      background: #0d1b2d;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 15px;
+      margin-bottom: 13px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      color: #b6c2cf;
+      padding-top: 12px;
+      font-size: 14px;
+    }
+
+    /* Contact */
+    .contact {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(53,224,192,0.12), transparent 30%),
+        #07111f;
+    }
+
+    .contact-box {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .phone {
+      display: inline-block;
+      font-size: 28px;
+      color: #35e0c0;
+      font-weight: bold;
+      margin: 25px 0;
+      direction: ltr;
+    }
+
+    .location {
+      color: #b5c1cf;
+      margin-bottom: 25px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #050d17;
+      color: #8997a8;
+      font-size: 13px;
+    }
+
+    /* Mobile */
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 70px 0;
+      }
+
+      .services-grid,
+      .why-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .about-box {
+        padding: 28px;
+      }
+
+      .phone {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">Smart<span>Home</span></a>
+
+      <nav>
+        <a href="#services">خدمات</a>
+        <a href="#why">چرا ما؟</a>
+        <a href="#portfolio">نمونه راهکارها</a>
+        <a href="#about">درباره ما</a>
+        <a href="#contact">تماس</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="badge">هوشمندسازی ساختمان در اراک</div>
+
+          <h1>
+            ساختمان شما،
+            <span>هوشمندتر</span>
+            از همیشه
+          </h1>
+
+          <p>
+            SmartHome ارائه‌دهنده راهکارهای هوشمندسازی برای خانه‌ها،
+            ساختمان‌های اداری و فضاهای تجاری در اراک.
+          </p>
+
+          <div class="buttons">
+            <a href="tel:09183605130" class="btn btn-primary">
+              تماس مستقیم
+            </a>
+
+            <a href="#services" class="btn btn-secondary">
+              مشاهده خدمات
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="services" class="services">
+
+      <div class="container">
+
+        <div class="section-title">
+          <h2>خدمات SmartHome</h2>
+          <p>راهکارهای متنوع برای یک ساختمان مدرن و هوشمند</p>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service">
+            <div class="service-icon">💡</div>
+            <h3>روشنایی هوشمند</h3>
+            <p>کنترل و مدیریت هوشمند چراغ‌ها و سیستم روشنایی ساختمان.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🏠</div>
+            <h3>خانه هوشمند</h3>
+            <p>اتصال تجهیزات مختلف خانه و کنترل آسان آن‌ها.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🔐</div>
+            <h3>امنیت هوشمند</h3>
+            <p>راهکارهای هوشمند برای افزایش امنیت و کنترل ساختمان.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">📹</div>
+            <h3>دوربین مداربسته</h3>
+            <p>راهکارهای نظارت تصویری برای خانه‌ها و ساختمان‌ها.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🌡️</div>
+            <h3>کنترل دما</h3>
+            <p>مدیریت هوشمند دما و سیستم‌های گرمایشی و سرمایشی.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🪟</div>
+            <h3>پرده هوشمند</h3>
+            <p>کنترل آسان پرده‌ها با سیستم‌های هوشمند.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🚪</div>
+            <h3>کنترل ورود و خروج</h3>
+            <p>راهکارهای هوشمند برای مدیریت ورود و خروج.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">⚡</div>
+            <h3>مدیریت انرژی</h3>
+            <p>کنترل مصرف انرژی و استفاده بهینه از تجهیزات.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">📱</div>
+            <h3>کنترل با موبایل</h3>
+            <p>مدیریت تجهیزات هوشمند ساختمان از طریق تلفن همراه.</p>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">🏢</div>
+            <h3>هوشمندسازی ساختمان</h3>
+            <p>راهکارهای هوشمند برای ساختمان‌های اداری و تجاری.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="why">
+
+      <div class="container">
+
+        <div class="section-title">
+          <h2>چرا SmartHome؟</h2>
+          <p>تمرکز ما روی ایجاد یک تجربه ساده و مدرن است</p>
+        </div>
+
+        <div class="why-grid">
+
+          <div class="why-card">
+            <div class="why-icon">⚙️</div>
+            <strong>راهکار هوشمند</strong>
+            <p>استفاده از راهکارهای مناسب برای کنترل بهتر ساختمان.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">📱</div>
+            <strong>کنترل آسان</strong>
+            <p>مدیریت بسیاری از تجهیزات با روش‌های ساده و کاربردی.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🏠</div>
+            <strong>طراحی متناسب</strong>
+            <p>امکان انتخاب راهکار متناسب با نیاز ساختمان.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="portfolio" class="portfolio">
+
+      <div class="container">
+
+        <div class="section-title">
+          <h2>نمونه راهکارها</h2>
+          <p>چند ایده برای استفاده از سیستم‌های هوشمند</p>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <div class="portfolio-card">
+            <h3>خانه هوشمند</h3>
+            <p>کنترل روشنایی، دما و تجهیزات خانه</p>
+          </div>
+
+          <div class="portfolio-card">
+            <h3>ساختمان مدرن</h3>
+            <p>مدیریت هوشمند تجهیزات ساختمان</p>
+          </div>
+
+          <div class="portfolio-card">
+            <h3>سیستم امنیتی</h3>
+            <p>راهکارهای نظارت و کنترل هوشمند</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="about-box">
+
+          <h2>درباره SmartHome</h2>
+
+          <p>
+            SmartHome یک مجموعه فعال در زمینه راهکارهای هوشمندسازی ساختمان در اراک است.
+          </p>
+
+          <p>
+            هدف ما ارائه راهکارهایی برای کنترل ساده‌تر، مدیریت بهتر
+            و تجربه‌ای مدرن‌تر از ساختمان هوشمند است.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+          <h2>سؤالات متداول</h2>
+          <p>چند سؤال رایج درباره هوشمندسازی</p>
+        </div>
+
+        <div class="faq">
+
+          <details>
+            <summary>هوشمندسازی ساختمان چیست؟</summary>
+            <p>
+              هوشمندسازی یعنی تجهیزات مختلف ساختمان بتوانند به صورت هماهنگ
+              و هوشمند کنترل و مدیریت شوند.
+            </p>
+          </details>
+
+          <details>
+            <summary>آیا خانه معمولی هم قابل هوشمندسازی است؟</summary>
+            <p>
+              بسته به نوع تجهیزات و شرایط ساختمان، می‌توان راهکار مناسب برای
+              بسیاری از خانه‌ها طراحی کرد.
+            </p>
+          </details>
+
+          <details>
+            <summary>آیا تجهیزات با موبایل کنترل می‌شوند؟</summary>
+            <p>
+              بسیاری از سیستم‌های هوشمند امکان کنترل و مدیریت از طریق تلفن همراه را دارند.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="contact" class="contact">
+
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div class="section-title">
+            <h2>با ما در تماس باشید</h2>
+            <p>برای دریافت اطلاعات بیشتر با SmartHome تماس بگیرید.</p>
+          </div>
+
+          <div class="location">
+            📍 اراک
+          </div>
+
+          <a href="tel:09183605130" class="phone">
+            09183605130
+          </a>
+
+          <br>
+
+          <a href="tel:09183605130" class="btn btn-primary">
+            📞 تماس با SmartHome
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    © ۱۴۰۵ SmartHome — هوشمندسازی ساختمان در اراک
+  </footer>
+
+</body>
+</html>
