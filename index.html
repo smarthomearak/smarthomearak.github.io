@@ -1,1270 +1,399 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="cadNkKMeU2aKKJa4ZUkPCdB4qM2fzHPOv8JY8JloCec" />
-  
-  <title>SmartHome Arak | خانه هوشمند اراک - مجری: محمد ایرجی</title>
-  <meta name="description" content="SmartHome Arak - اجرای تخصصی هوشمندسازی ساختمان، BMS، روشنایی و امنیت در اراک توسط محمد ایرجی. محاسبه قیمت آنلاین و پیش‌نمایش زنده سناریوها.">
-  <meta name="keywords" content="خانه هوشمند اراک, محمد ایرجی, هوشمندسازی ساختمان اراک, محاسبه قیمت خانه هوشمند, BMS اراک, سیستم روشنایی اراک">
-  <meta name="author" content="محمد ایرجی - SmartHome Arak">
-
-  <!-- Vazirmatn Font CDN -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Schema.org JSON-LD for Local Business SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "SmartHome Arak - خانه هوشمند اراک",
-    "founder": {
-      "@type": "Person",
-      "name": "محمد ایرجی"
-    },
-    "image": "https://placehold.co/600x400/0b172a/00e5ff?text=Mohammad+Iraji+SmartHome",
-    "telephone": "09183605130",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "اراک",
-      "addressRegion": "مرکزی",
-      "addressCountry": "IR"
-    },
-    "url": "https://smarthomearak.com",
-    "priceRange": "$$",
-    "description": "مرکز تخصصی طراحی، مشاوره و اجرای هوشمندسازی ساختمان در اراک زیر نظر محمد ایرجی"
-  }
-  </script>
-
-  <style>
-    :root {
-      --bg-dark: #070d19;
-      --bg-card: rgba(15, 28, 48, 0.75);
-      --bg-card-hover: rgba(22, 42, 74, 0.9);
-      --accent-cyan: #00e5ff;
-      --accent-blue: #0288d1;
-      --accent-glow: rgba(0, 229, 255, 0.25);
-      --accent-purple: #a855f7;
-      --text-main: #f0f6fc;
-      --text-muted: #94a3b8;
-      --border-glow: rgba(0, 229, 255, 0.2);
-      --radius-lg: 20px;
-      --radius-md: 12px;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      --demo-bg: #070d19;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.8;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(0, 229, 255, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 85% 65%, rgba(2, 136, 209, 0.08) 0%, transparent 45%);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER & NAVBAR */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(7, 13, 25, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .navbar {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 22px;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .logo-icon {
-      width: 42px;
-      height: 42px;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      box-shadow: 0 0 15px var(--accent-glow);
-    }
-
-    .logo-text span {
-      color: var(--accent-cyan);
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    nav a:hover, nav a.active {
-      color: var(--accent-cyan);
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      right: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent-cyan);
-      transition: var(--transition);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .menu-btn {
-      display: none;
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      position: relative;
-      padding: 110px 24px 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 85vh;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 229, 255, 0.08);
-      border: 1px solid var(--border-glow);
-      color: var(--accent-cyan);
-      padding: 8px 22px;
-      border-radius: 50px;
-      margin-bottom: 24px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
-    }
-
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 900;
-      line-height: 1.3;
-      margin-bottom: 24px;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--accent-cyan), #38bdf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      font-size: clamp(15px, 2vw, 19px);
-      max-width: 750px;
-      margin: 0 auto 36px;
-    }
-
-    .engineer-tag {
-      display: inline-block;
-      margin-top: 10px;
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      color: #d8b4fe;
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 30px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: 700;
-      transition: var(--transition);
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-      color: #040914;
-      box-shadow: 0 8px 25px var(--accent-glow);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(0, 229, 255, 0.4);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #fff;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-3px);
-    }
-
-    /* GENERAL SECTIONS */
-    section {
-      padding: 90px 24px;
-      position: relative;
-    }
-
-    .section-container {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .section-title span {
-      color: var(--accent-cyan);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .section-title p {
-      color: var(--text-muted);
-      margin-top: 8px;
-      font-size: 15px;
-    }
-
-    /* LIVE DEMO SIMULATION */
-    .demo-container {
-      background: var(--demo-bg);
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-lg);
-      padding: 35px;
-      transition: background 0.6s ease;
-      position: relative;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    }
-
-    .demo-controls {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .demo-btn {
-      padding: 10px 20px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #fff;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-
-    .demo-btn.active {
-      background: var(--accent-cyan);
-      color: #000;
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 15px var(--accent-glow);
-    }
-
-    .demo-screen {
-      border-radius: 16px;
-      padding: 30px;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-
-    .demo-widget {
-      background: rgba(255, 255, 255, 0.04);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: var(--transition);
-    }
-
-    .demo-widget-title {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .demo-widget-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--accent-cyan);
-    }
-
-    /* COMPARISON TABLE */
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    @media (max-width: 768px) {
-      .comparison-grid { grid-template-columns: 1fr; }
-    }
-
-    .comp-box {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .comp-box.smart {
-      border-color: var(--accent-cyan);
-      background: linear-gradient(135deg, rgba(0, 229, 255, 0.05), rgba(15, 28, 48, 0.8));
-    }
-
-    .comp-box h3 {
-      font-size: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .comp-list {
-      list-style: none;
-    }
-
-    .comp-list li {
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      color: #cbd5e1;
-    }
-
-    /* CALCULATOR */
-    .calculator-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-lg);
-      padding: 35px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    }
-
-    .calc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-
-    .calc-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .calc-group label {
-      font-weight: 600;
-      color: #e2e8f0;
-      font-size: 14px;
-    }
-
-    .calc-input, .calc-select {
-      background: rgba(7, 13, 25, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #fff;
-      padding: 12px 16px;
-      border-radius: var(--radius-md);
-      font-family: inherit;
-      font-size: 14px;
-      outline: none;
-      transition: var(--transition);
-    }
-
-    .calc-input:focus, .calc-select:focus {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    .services-checkboxes {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .checkbox-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 12px 14px;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 13px;
-    }
-
-    .checkbox-btn.active {
-      background: rgba(0, 229, 255, 0.1);
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-    }
-
-    .calc-result {
-      background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(2, 136, 209, 0.15));
-      border: 1px solid var(--accent-cyan);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      text-align: center;
-      margin-top: 25px;
-    }
-
-    .calc-price {
-      font-size: 30px;
-      font-weight: 900;
-      color: var(--accent-cyan);
-      margin: 8px 0;
-    }
-
-    /* ABOUT AUTHOR / ENGINEER */
-    .about-author-box {
-      background: var(--bg-card);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .author-avatar-lg {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
-    }
-
-    .author-details {
-      flex: 1;
-    }
-
-    .author-details h3 {
-      font-size: 22px;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-
-    .author-details span {
-      color: var(--accent-cyan);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .author-details p {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-top: 10px;
-      line-height: 1.8;
-    }
-
-    /* SERVICES GRID */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: var(--radius-lg);
-      padding: 28px 20px;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .service-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-glow);
-      transform: translateY(-5px);
-    }
-
-    .service-icon-box {
-      width: 50px;
-      height: 50px;
-      background: rgba(0, 229, 255, 0.1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 16px;
-      color: var(--accent-cyan);
-    }
-
-    .service-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    /* CONSULTATION FORM */
-    .consult-box {
-      background: linear-gradient(135deg, rgba(15, 28, 48, 0.9), rgba(7, 13, 25, 0.95));
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-lg);
-      padding: 40px 28px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .form-control {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 12px 16px;
-      border-radius: var(--radius-md);
-      color: #fff;
-      font-family: inherit;
-      font-size: 14px;
-      outline: none;
-      transition: var(--transition);
-    }
-
-    .form-control:focus {
-      border-color: var(--accent-cyan);
-    }
-
-    textarea.form-control {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    /* CONTACT SECTION */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-
-    .contact-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: var(--radius-lg);
-      padding: 24px 16px;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .contact-card:hover {
-      border-color: var(--accent-cyan);
-      transform: translateY(-4px);
-    }
-
-    .contact-icon {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    /* FLOATING BUTTONS */
-    .floating-btns {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      z-index: 1500;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .float-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-      transition: var(--transition);
-      color: #fff;
-    }
-
-    .float-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .float-phone {
-      background: var(--accent-cyan);
-      color: #000;
-      animation: pulse 2s infinite;
-    }
-
-    .float-wa { background: #25d366; }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 44px;
-      height: 44px;
-      background: rgba(15, 28, 48, 0.8);
-      border: 1px solid var(--border-glow);
-      color: var(--accent-cyan);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 1000;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.6); }
-      70% { box-shadow: 0 0 0 14px rgba(0, 229, 255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
-    }
-
-    /* FOOTER */
-    footer {
-      background: #040810;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 35px 24px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    footer span {
-      color: var(--accent-cyan);
-      font-weight: 700;
-    }
-
-    /* MODAL */
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 3000;
-      background: rgba(3, 7, 18, 0.85);
-      backdrop-filter: blur(12px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal.show { display: flex; }
-
-    .modal-content {
-      background: #0f1c30;
-      border: 1px solid var(--border-glow);
-      border-radius: var(--radius-lg);
-      width: min(600px, 100%);
-      padding: 35px;
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: rgba(255, 255, 255, 0.08);
-      border: none;
-      color: #fff;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    @media (max-width: 868px) {
-      nav {
-        position: fixed;
-        top: 70px;
-        right: 0;
-        left: 0;
-        background: #070d19;
-        flex-direction: column;
-        padding: 25px;
-        gap: 16px;
-        border-bottom: 1px solid var(--border-glow);
-        display: none;
-      }
-      nav.active { display: flex; }
-      .menu-btn { display: block; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f1fbfc">
+<title>خانه هوشمند اراک | SmartHome Arak</title>
+<meta name="description" content="طراحی و اجرای خانه هوشمند در اراک؛ روشنایی، امنیت، پرده برقی و کنترل هوشمند ساختمان.">
+
+<style>
+:root{
+  --primary:#078b98;
+  --primary-dark:#066b78;
+  --bg:#f2f9fb;
+  --white:#fff;
+  --text:#203b4c;
+  --muted:#657b89;
+  --border:#dce9ed;
+  --shadow:0 8px 28px #173b4c12;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.wrap{width:min(1150px,92%);margin:auto}
+header{
+  background:#ffffffed;
+  position:sticky;top:0;z-index:20;
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+.nav{
+  min-height:76px;display:flex;
+  align-items:center;justify-content:space-between;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:bold}
+.brand-icon{
+  width:48px;height:48px;border-radius:15px;
+  display:grid;place-items:center;
+  color:white;background:linear-gradient(135deg,#08a5ae,#347ed1);
+  font-size:26px;
+}
+.brand small{display:block;color:var(--muted);font-weight:normal}
+.links{display:flex;gap:20px;align-items:center}
+.links a{font-size:14px;color:var(--muted)}
+.links a:hover{color:var(--primary)}
+.menu{
+  display:none;background:white;border:1px solid var(--border);
+  padding:9px 14px;border-radius:10px;
+}
+.hero{
+  padding:75px 0 65px;text-align:center;
+  background:radial-gradient(ellipse at top,#d8f5f6,transparent 65%);
+}
+.tag{
+  display:inline-block;background:#dff7f7;color:var(--primary-dark);
+  padding:5px 15px;border-radius:30px;font-size:13px;font-weight:bold;
+}
+h1{font-size:clamp(30px,5vw,52px);line-height:1.5;margin:20px auto}
+.hero p{max-width:720px;margin:0 auto 25px;color:var(--muted)}
+.btn{
+  display:inline-block;border:0;border-radius:12px;padding:12px 20px;
+  background:var(--primary);color:white;font-weight:bold;cursor:pointer;
+}
+.btn:hover{background:var(--primary-dark)}
+.btn.light{background:white;color:var(--text);border:1px solid var(--border)}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.section{padding:60px 0}
+.section-head{text-align:center;margin-bottom:30px}
+.section-head h2{font-size:30px;margin:5px}
+.section-head p{color:var(--muted);margin:5px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.card{
+  background:white;border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
+  transition:transform .2s,border-color .2s;
+}
+.card:hover{transform:translateY(-4px);border-color:#79cbd0}
+.service-button{
+  width:100%;padding:0;border:0;background:white;
+  text-align:right;color:var(--text);cursor:pointer;
+}
+.service-art{
+  height:150px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#e0f7f7,#e8efff);
+}
+.service-art svg{width:92px;height:92px}
+.service-name{padding:13px 15px;font-weight:bold;font-size:15px}
+.details{display:none;padding:0 15px 16px;font-size:13px;color:var(--muted)}
+.card.open .details{display:block}
+.details strong{color:var(--text)}
+.details ul{padding-right:20px;margin:5px 0}
+.panel{
+  background:white;border:1px solid var(--border);
+  border-radius:20px;padding:24px;box-shadow:var(--shadow);
+}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:6px}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px;border:1px solid var(--border);
+  border-radius:11px;background:white;color:var(--text);
+}
+.field textarea{min-height:100px;resize:vertical}
+.result{
+  margin-top:18px;padding:18px;background:#e8f8f8;
+  border:1px solid #c8eeee;border-radius:14px;
+}
+.price{font-size:26px;font-weight:bold;color:var(--primary-dark)}
+.note{font-size:12px;color:var(--muted)}
+.review-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.review{padding:18px;background:white;border:1px solid var(--border);border-radius:15px}
+.review p{font-size:14px}
+footer{background:#e6f2f5;padding:30px 0;text-align:center;color:var(--muted)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.review-list{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){
+  .menu{display:block}
+  .links{display:none;position:absolute;top:76px;right:0;left:0;background:white;padding:18px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--border)}
+  .links.show{display:flex}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .service-art{height:115px}
+  .service-name{font-size:13px;padding:10px}
+  .section{padding:42px 0}
+  .form-grid,.review-list{grid-template-columns:1fr}
+  .panel{padding:16px}
+}
+</style>
 </head>
+
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="navbar">
-      <a href="#" class="logo">
-        <div class="logo-icon">🏠</div>
-        <div class="logo-text">Smart<span>Home</span> Arak</div>
-      </a>
-
-      <button class="menu-btn" onclick="toggleMenu()" aria-label="منو">☰</button>
-
-      <nav id="mainNav">
-        <a href="#demo">پیش‌نمایش زنده</a>
-        <a href="#comparison">مقایسه</a>
-        <a href="#calculator">محاسبه قیمت</a>
-        <a href="#about">مجری پروژه</a>
-        <a href="#services">خدمات</a>
-        <a href="#consult">مشاوره</a>
-        <a href="#contact">تماس</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span>✨ مرجع تخصصی هوشمندسازی ساختمان در اراک</span>
-      </div>
-      <h1>تجربه هوشمندی واقعی با <span>SmartHome Arak</span></h1>
-      <p>طراحی، تامین تجهیزات و اجرای پروژه‌های مدرن BMS، کنترل روشنایی، امنیت و دما با استاندارد بالا.</p>
-      <div class="engineer-tag">👤 طراح و مجری ارشد: مهندس محمد ایرجی</div>
-      
-      <div class="hero-buttons" style="margin-top: 30px;">
-        <a href="#demo" class="btn btn-primary">🎬 پیش‌نمایش زنده خانه هوشمند</a>
-        <a href="#calculator" class="btn btn-secondary">⚡ استعلام آنلاین هزینه</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIVE DEMO SIMULATION SECTION -->
-  <section id="demo" style="background: rgba(15, 28, 48, 0.3);">
-    <div class="section-container">
-      <div class="section-title">
-        <span>تست تعاملی آنلاین</span>
-        <h2>پیش‌نمایش زنده عملکرد خانه هوشمند</h2>
-        <p>یکی از حالت‌ها را انتخاب کنید تا تغییرات واقعی نور و تنظیمات را شبیه‌سازی کنید:</p>
-      </div>
-
-      <div class="demo-container" id="demoContainer">
-        <div class="demo-controls">
-          <button class="demo-btn active" onclick="setDemoMode('normal', this)">☀️ روز / عادی</button>
-          <button class="demo-btn" onclick="setDemoMode('night', this)">🌙 حالت شب</button>
-          <button class="demo-btn" onclick="setDemoMode('cinema', this)">🎬 حالت سینما</button>
-          <button class="demo-btn" onclick="setDemoMode('party', this)">🎉 حالت مهمانی</button>
-          <button class="demo-btn" onclick="setDemoMode('away', this)">🔒 حالت خروج</button>
-        </div>
-
-        <div class="demo-screen">
-          <div class="demo-widget">
-            <div class="demo-widget-title">وضعیت روشنایی</div>
-            <div class="demo-widget-value" id="demoLight">۱۰۰٪ - نور طبیعی</div>
-          </div>
-          <div class="demo-widget">
-            <div class="demo-widget-title">وضعیت پرده‌ها</div>
-            <div class="demo-widget-value" id="demoCurtains">باز (۱۰۰٪)</div>
-          </div>
-          <div class="demo-widget">
-            <div class="demo-widget-title">دمای مطلوب</div>
-            <div class="demo-widget-value" id="demoTemp">۲۲° سانتی‌گراد</div>
-          </div>
-          <div class="demo-widget">
-            <div class="demo-widget-title">سیستم صوتی</div>
-            <div class="demo-widget-value" id="demoAudio">خاموش</div>
-          </div>
-          <div class="demo-widget">
-            <div class="demo-widget-title">سیستم امنیتی</div>
-            <div class="demo-widget-value" id="demoSecurity">غیرفعال</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARISON SECTION -->
-  <section id="comparison">
-    <div class="section-container">
-      <div class="section-title">
-        <span>چرا هوشمندسازی؟</span>
-        <h2>مقایسه خانه سنتی و خانه هوشمند</h2>
-      </div>
-
-      <div class="comparison-grid">
-        <div class="comp-box">
-          <h3>❌ خانه سنتی</h3>
-          <ul class="comp-list">
-            <li>🔴 خاموش کردن دستی تک تک کلیدها هنگام خروج</li>
-            <li>🔴 مصرف بالای انرژی به دلیل روشن ماندن کولر یا بخاری</li>
-            <li>🔴 عدم دسترسی و کنترل خانه از خارج از منزل</li>
-            <li>🔴 کلیدهای شلوغ و متعدد روی دیوارهای پذیرایی</li>
-          </ul>
-        </div>
-
-        <div class="comp-box smart">
-          <h3>✅ خانه هوشمند (SmartHome Arak)</h3>
-          <ul class="comp-list">
-            <li>🟢 اجرای سناریوی خروج با یک لمس روی گوشی یا کلید تاچ</li>
-            <li>🟢 کاهش ۲۰ تا ۴۰ درصدی مصرف گاز و برق با ترموستات هوشمند</li>
-            <li>🟢 کنترل کامل روشنایی، دوربین و قفل‌ها از هر نقطه جهان</li>
-            <li>🟢 کلیدهای لمسی مدرن و تاچ‌پنل‌های شیک و لوکس</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALCULATOR SECTION -->
-  <section id="calculator" style="background: rgba(15, 28, 48, 0.3);">
-    <div class="section-container">
-      <div class="section-title">
-        <span>تخمین سریع قیمت</span>
-        <h2>محاسبه‌گر پیشرفته هزینه هوشمندسازی</h2>
-      </div>
-
-      <div class="calculator-card">
-        <div class="calc-grid">
-          <div class="calc-group">
-            <label for="buildingType">نوع پروژه</label>
-            <select id="buildingType" class="calc-select" onchange="calculatePrice()">
-              <option value="residential">واحد مسکونی / آپارتمان</option>
-              <option value="villa">ویلا / خانه ویلایی</option>
-              <option value="office">دفتر کار / اداری</option>
-            </select>
-          </div>
-
-          <div class="calc-group">
-            <label for="areaInput">متراژ زیربنا (مترمربع)</label>
-            <input type="number" id="areaInput" class="calc-input" value="110" min="30" max="1000" oninput="calculatePrice()">
-          </div>
-        </div>
-
-        <div class="calc-group">
-          <label>امکانات درخواستی:</label>
-          <div class="services-checkboxes">
-            <div class="checkbox-btn active" onclick="toggleService(this, 'lighting')">💡 روشنایی هوشمند</div>
-            <div class="checkbox-btn active" onclick="toggleService(this, 'security')">🔐 دزدگیر و امنیت</div>
-            <div class="checkbox-btn" onclick="toggleService(this, 'curtain')">🪟 پرده برقی</div>
-            <div class="checkbox-btn" onclick="toggleService(this, 'temp')">🌡️ ترموستات دما</div>
-            <div class="checkbox-btn" onclick="toggleService(this, 'audio')">🎵 سیستم صوتی</div>
-          </div>
-        </div>
-
-        <div class="calc-result">
-          <div style="font-size: 14px; color: var(--text-muted);">حدود برآورد اولیه تجهیزات و اجرا:</div>
-          <div class="calc-price" id="totalPrice">حدود ۳۸ الی ۴۸ میلیون تومان</div>
-          <button class="btn btn-secondary" style="margin-top: 15px; font-size: 13px;" onclick="printEstimate()">🖨️ چاپ / ذخیره برآورد</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT / ENGINEER SECTION -->
-  <section id="about">
-    <div class="section-container">
-      <div class="about-author-box">
-        <div class="author-avatar-lg">👤</div>
-        <div class="author-details">
-          <h3>محمد ایرجی</h3>
-          <span>طراح و مجری ارشد سیستم‌های هوشمندسازی و BMS در اراک</span>
-          <p>با سال‌ها تجربه تخصصی در زمینه برق ساختمان، اتوماسیون و پیاده‌سازی سیستم‌های خانه هوشمند در استان مرکزی. هدف ما ارائه راهکارهای نوین، باکیفیت و با پشتیبانی واقعی برای آسایش و امنیت خانواده‌های محترم اراکی است.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES SECTION -->
-  <section id="services" style="background: rgba(15, 28, 48, 0.3);">
-    <div class="section-container">
-      <div class="section-title">
-        <span>خدمات ما</span>
-        <h2>راهکارهای هوشمندسازی SmartHome</h2>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card" onclick="openModal('lighting')">
-          <div class="service-icon-box">💡</div>
-          <h3>روشنایی و نورپردازی</h3>
-          <p>کلیدهای لمسی چندپل، دیمر هوشمند و کنترل افکت‌های نوری با برنامه موبایل.</p>
-        </div>
-
-        <div class="service-card" onclick="openModal('security')">
-          <div class="service-icon-box">🔐</div>
-          <h3>امنیت و دسترسی</h3>
-          <p>دستگیره و قفل اثرانگشتی، سنسور حضور، اعلان سرقت و نشت گاز.</p>
-        </div>
-
-        <div class="service-card" onclick="openModal('climate')">
-          <div class="service-icon-box">🌡️</div>
-          <h3>کنترل سرمایش/گرمایش</h3>
-          <p>ترموستات‌های لمسی مدرن سازگار با پکیج، کولر گازی و فن‌کوئل.</p>
-        </div>
-
-        <div class="service-card" onclick="openModal('curtain')">
-          <div class="service-icon-box">🪟</div>
-          <h3>پرده برقی و شید</h3>
-          <p>موتورهای بی‌صدا و قدرتمند با امکان کنترل زمانی و دستی.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONSULTATION FORM -->
-  <section id="consult">
-    <div class="section-container">
-      <div class="consult-box">
-        <div class="section-title" style="margin-bottom: 25px;">
-          <span>درخواست مشاوره</span>
-          <h2>مشاوره رایگان و بازدید از پروژه در اراک</h2>
-        </div>
-
-        <form onsubmit="handleFormSubmit(event)">
-          <div class="form-grid">
-            <input type="text" id="formName" class="form-control" placeholder="نام و نام خانوادگی *" required>
-            <input type="tel" id="formPhone" class="form-control" placeholder="شماره تماس (مثال: 09181234567) *" required pattern="09[0-9]{9}">
-          </div>
-          <div class="form-grid">
-            <input type="text" id="formLocation" class="form-control" placeholder="مکان پروژه در اراک">
-            <select id="formType" class="form-control">
-              <option value="">وضعیت ساختمان</option>
-              <option value="building">در حال ساخت</option>
-              <option value="built">تکمیل شده / آماده سکونت</option>
-            </select>
-          </div>
-          <textarea id="formMessage" class="form-control" placeholder="توضیحات تکمیلی..."></textarea>
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">ارسال درخواست برای مهندس ایرجی</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" style="background: rgba(15, 28, 48, 0.4);">
-    <div class="section-container">
-      <div class="section-title">
-        <span>ارتباط با ما</span>
-        <h2>راه‌های ارتباطی مستمر</h2>
-      </div>
-
-      <div class="contact-grid">
-        <a href="tel:09183605130" class="contact-card">
-          <div class="contact-icon">📞</div>
-          <h3>تماس تلفنی</h3>
-          <p>09183605130</p>
-        </a>
-
-        <a href="https://wa.me/989183605130" target="_blank" class="contact-card">
-          <div class="contact-icon">💬</div>
-          <h3>واتساپ</h3>
-          <p>ارسال پیام به مهندس ایرجی</p>
-        </a>
-
-        <a href="https://t.me/SmartHomeArak" target="_blank" class="contact-card">
-          <div class="contact-icon">✈️</div>
-          <h3>تلگرام</h3>
-          <p>@SmartHomeArak</p>
-        </a>
-
-        <a href="https://eitaa.com/SmartHomeArak" target="_blank" class="contact-card">
-          <div class="contact-icon">📱</div>
-          <h3>ایتا</h3>
-          <p>ارتباط در ایتا</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© ۱۴۰۵ SmartHome Arak — طراح، مجری و مدیر پروژه: <span>محمد ایرجی</span> | تمامی حقوق محفوظ است.</p>
-  </footer>
-
-  <!-- FLOATING BUTTONS -->
-  <div class="floating-btns">
-    <a href="https://wa.me/989183605130" class="float-btn float-wa" title="واتساپ" aria-label="واتساپ">💬</a>
-    <a href="tel:09183605130" class="float-btn float-phone" title="تماس" aria-label="تماس">📞</a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">
+      <span class="brand-icon">⌂</span>
+      <span>SmartHome Arak<small>خانه هوشمند اراک</small></span>
+    </a>
+    <button class="menu" id="menuButton" aria-expanded="false">☰ منو</button>
+    <nav class="links" id="navLinks">
+      <a href="#home">خانه</a>
+      <a href="#services">خدمات</a>
+      <a href="#calculator">محاسبه قیمت</a>
+      <a href="#reviews">نظرات مشتریان</a>
+      <a href="#contact">تماس با ما</a>
+    </nav>
   </div>
+</header>
 
-  <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="بازگشت به بالا">↑</button>
-
-  <!-- MODAL -->
-  <div class="modal" id="infoModal" onclick="closeModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModalDirect()">✕</button>
-      <div id="modalBody"></div>
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <span class="tag">هوشمندسازی ساختمان</span>
+    <h1>خانه‌ای هوشمندتر،<br><span style="color:#078b98">زندگی راحت‌تر</span></h1>
+    <p>راهکارهای هوشمند برای کنترل روشنایی، امنیت، دما و تجهیزات خانه؛ متناسب با نیاز و بودجه پروژه شما.</p>
+    <div class="actions">
+      <a class="btn" href="#services">مشاهده خدمات</a>
+      <a class="btn light" href="#calculator">محاسبه هزینه تقریبی</a>
     </div>
   </div>
+</section>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    const selectedServices = new Set(['lighting', 'security']);
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>خدمات خانه هوشمند</h2>
+      <p>برای مشاهده توضیحات و تجهیزات هر خدمت روی کارت آن بزنید.</p>
+    </div>
+    <div class="grid" id="serviceGrid"></div>
+  </div>
+</section>
 
-    function toggleMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
-    }
+<section class="section" id="calculator" style="background:#eaf5f7">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>محاسبه‌گر قیمت</h2>
+      <p>برآورد اولیه هزینه بر اساس متراژ و تعداد خدمات انتخابی.</p>
+    </div>
+    <div class="panel">
+      <div class="form-grid">
+        <div class="field">
+          <label for="area">متراژ ساختمان (متر مربع)</label>
+          <input id="area" type="number" min="20" max="2000" value="100">
+        </div>
+        <div class="field">
+          <label for="level">سطح تجهیزات</label>
+          <select id="level">
+            <option value="1">اقتصادی</option>
+            <option value="1.5">استاندارد</option>
+            <option value="2.2">پیشرفته</option>
+          </select>
+        </div>
+      </div>
+      <p><strong>خدمات موردنظر را انتخاب کنید:</strong></p>
+      <div id="serviceChoices" class="form-grid"></div>
+      <div class="result">
+        <div>برآورد تقریبی هزینه تجهیزات و اجرا</div>
+        <div class="price" id="price">۰ تومان</div>
+        <p class="note">این مبلغ نمونه و تقریبی است، نه قیمت قطعی بازار. قیمت واقعی به برند، تعداد تجهیزات، سیم‌کشی و شرایط نصب بستگی دارد.</p>
+      </div>
+      <button class="btn" id="calculateButton" type="button">محاسبه مجدد</button>
+    </div>
+  </div>
+</section>
 
-    // Live Demo Simulation Logic
-    function setDemoMode(mode, btnElement) {
-      document.querySelectorAll('.demo-btn').forEach(b => b.classList.remove('active'));
-      btnElement.classList.add('active');
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>نظر مشتریان</h2>
+      <p>نظرها در همین مرورگر نمایش داده می‌شوند؛ برای انتشار عمومی نیاز به ذخیره‌سازی آنلاین داریم.</p>
+    </div>
+    <div id="reviewList" class="review-list"></div>
+    <div class="panel" style="margin-top:22px">
+      <h3>نظر خود را بنویسید</h3>
+      <form id="reviewForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="reviewName">نام</label>
+            <input id="reviewName" maxlength="50" required placeholder="نام شما">
+          </div>
+          <div class="field">
+            <label for="reviewRating">امتیاز</label>
+            <select id="reviewRating">
+              <option value="5">۵ ستاره</option>
+              <option value="4">۴ ستاره</option>
+              <option value="3">۳ ستاره</option>
+              <option value="2">۲ ستاره</option>
+              <option value="1">۱ ستاره</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-top:15px">
+          <label for="reviewText">متن نظر</label>
+          <textarea id="reviewText" maxlength="1000" required placeholder="نظر یا پیشنهاد شما..."></textarea>
+        </div>
+        <button class="btn" style="margin-top:15px" type="submit">ثبت نظر روی این دستگاه</button>
+        <p class="note">این نسخه نظرها را فقط در مرورگر همین دستگاه نگه می‌دارد؛ بازدیدکنندگان دیگر آن‌ها را نمی‌بینند.</p>
+      </form>
+    </div>
+  </div>
+</section>
 
-      const container = document.getElementById('demoContainer');
-      const light = document.getElementById('demoLight');
-      const curtains = document.getElementById('demoCurtains');
-      const temp = document.getElementById('demoTemp');
-      const audio = document.getElementById('demoAudio');
-      const security = document.getElementById('demoSecurity');
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>درخواست مشاوره</h2>
+      <p>برای افزودن شماره تماس و واتساپ واقعی، اطلاعات کسب‌وکار باید درج شود.</p>
+    </div>
+    <div class="panel">
+      <p>با ما تماس بگیرید تا درباره نیازها، تجهیزات مناسب و هزینه اجرای پروژه مشاوره بگیرید.</p>
+      <p class="note">شماره تماس و پیوند واتساپ هنوز در این کد تعریف نشده‌اند.</p>
+    </div>
+  </div>
+</section>
+</main>
 
-      if (mode === 'normal') {
-        container.style.setProperty('--demo-bg', '#070d19');
-        light.textContent = '۱۰۰٪ - نور طبیعی';
-        curtains.textContent = 'باز (۱۰۰٪)';
-        temp.textContent = '۲۲° سانتی‌گراد';
-        audio.textContent = 'خاموش';
-        security.textContent = 'غیرفعال';
-      } else if (mode === 'night') {
-        container.style.setProperty('--demo-bg', '#02050b');
-        light.textContent = '۱۰٪ - نور ملایم راهروها';
-        curtains.textContent = 'بسته (۱۰۰٪)';
-        temp.textContent = '۲۰° سانتی‌گراد';
-        audio.textContent = 'خاموش';
-        security.textContent = 'فعال (حسگرهای پیرامونی)';
-      } else if (mode === 'cinema') {
-        container.style.setProperty('--demo-bg', '#0a0a16');
-        light.textContent = '۵٪ - نور مخفی بنفش';
-        curtains.textContent = 'بسته (۱۰۰٪)';
-        temp.textContent = '۲۱° سانتی‌گراد';
-        audio.textContent = 'روشن (سینمای خانگی)';
-        security.textContent = 'غیرفعال';
-      } else if (mode === 'party') {
-        container.style.setProperty('--demo-bg', '#12071f');
-        light.textContent = 'رقص نور RGB هوشمند';
-        curtains.textContent = 'بسته';
-        temp.textContent = '۱۹° سانتی‌گراد (خنک)';
-        audio.textContent = 'موزیک هیجانی';
-        security.textContent = 'غیرفعال';
-      } else if (mode === 'away') {
-        container.style.setProperty('--demo-bg', '#040810');
-        light.textContent = 'خاموش (صفر)';
-        curtains.textContent = 'بسته اتوماتیک';
-        temp.textContent = 'حالت اقتصادی (۱۶°)';
-        audio.textContent = 'خاموش';
-        security.textContent = '🔴 کاملاً فعال + شیر گاز بسته';
-      }
-    }
+<footer>
+  <div class="wrap">© خانه هوشمند اراک — تمامی حقوق محفوظ است.</div>
+</footer>
 
-    // Interactive Calculator
-    function toggleService(element, serviceKey) {
-      if (selectedServices.has(serviceKey)) {
-        selectedServices.delete(serviceKey);
-        element.classList.remove('active');
-      } else {
-        selectedServices.add(serviceKey);
-        element.classList.add('active');
-      }
-      calculatePrice();
-    }
+<script>
+const services = [
+  {name:"روشنایی هوشمند",icon:"☼",desc:"کنترل چراغ‌ها و ساخت سناریوهای نورپردازی.",items:["کلید هوشمند","دیمر سازگار","حسگر حضور"]},
+  {name:"امنیت هوشمند",icon:"♜",desc:"هشدار ورود و کنترل وضعیت در و پنجره.",items:["سنسور در و پنجره","حسگر حرکت","آژیر هشدار"]},
+  {name:"سرمایش و گرمایش",icon:"♨",desc:"تنظیم دما و برنامه‌ریزی تجهیزات سازگار.",items:["ترموستات","کنترلر سیستم گرمایشی","حسگر دما"]},
+  {name:"پرده برقی",icon:"▤",desc:"باز و بسته‌کردن پرده با زمان‌بندی یا فرمان.",items:["موتور پرده","ریل مناسب","کلید کنترل"]},
+  {name:"قفل هوشمند",icon:"▣",desc:"مدیریت ورود با روش‌های پشتیبانی‌شده توسط قفل.",items:["قفل دیجیتال","رمز یا کارت","منبع تغذیه"]},
+  {name:"دوربین مداربسته",icon:"◉",desc:"مشاهده و بازبینی تصاویر محیط.",items:["دوربین","دستگاه ضبط","هارد و کابل"]},
+  {name:"شبکه و وای‌فای",icon:"⌁",desc:"طراحی شبکه برای اتصال پایدار تجهیزات.",items:["روتر","نقطه دسترسی","کابل شبکه"]},
+  {name:"مدیریت انرژی",icon:"ϟ",desc:"پایش مصرف انرژی و مدیریت تجهیزات سازگار.",items:["پریز اندازه‌گیری","کنتور سازگار","داشبورد مصرف"]},
+  {name:"لوازم خانگی هوشمند",icon:"▦",desc:"کنترل تجهیزات برقی سازگار با سامانه.",items:["پریز هوشمند","رله سازگار","هاب در صورت نیاز"]},
+  {name:"صوتی و تصویری",icon:"♫",desc:"مدیریت سیستم‌های صوتی و تصویری سازگار.",items:["بلندگو","آمپلی‌فایر","کنترلر"]},
+  {name:"سناریوهای هوشمند",icon:"✧",desc:"اجرای چند فرمان با یک اقدام.",items:["کنترلر مرکزی","کلید هوشمند","حسگرهای لازم"]},
+  {name:"کنترل با موبایل",icon:"▯",desc:"مدیریت امکانات از طریق برنامه سازگار.",items:["هاب یا کنترلر","شبکه مناسب","برنامه سازگار"]},
+  {name:"کنترل صوتی",icon:"◖",desc:"اجرای فرمان صوتی با سامانه‌های پشتیبانی‌شده.",items:["دستیار صوتی سازگار","هاب","شبکه اینترنت"]},
+  {name:"تشخیص نشت آب",icon:"♧",desc:"تشخیص نشت آب و ارسال هشدار.",items:["حسگر نشت آب","هاب سازگار","شیر قطع‌کن در صورت نیاز"]},
+  {name:"هشدار دود و گاز",icon:"♨",desc:"تشخیص دود یا گاز با حسگر مخصوص هر خطر.",items:["حسگر دود مناسب","حسگر گاز مناسب","آژیر هشدار"]},
+  {name:"آبیاری هوشمند",icon:"❋",desc:"زمان‌بندی آبیاری باغچه و گلدان‌ها.",items:["کنترلر آبیاری","شیر برقی","حسگر رطوبت در صورت نیاز"]},
+  {name:"پارکینگ هوشمند",icon:"▰",desc:"کنترل درب پارکینگ و دسترسی مجاز.",items:["موتور درب سازگار","ریموت یا کنترلر","حسگر ایمنی"]},
+  {name:"آیفون تصویری",icon:"▣",desc:"مشاهده مراجعه‌کننده و مدیریت ورود.",items:["پنل ورودی","مانیتور داخلی","قفل برقی سازگار"]},
+  {name:"موتورخانه هوشمند",icon:"⚙",desc:"پایش و کنترل تجهیزات سازگار موتورخانه.",items:["حسگر دما","کنترلر","رله مناسب"]},
+  {name:"اجرای کامل خانه هوشمند",icon:"⌂",desc:"مشاوره، طراحی، انتخاب تجهیزات و راه‌اندازی.",items:["بازدید و نیازسنجی","طراحی سیستم","نصب و آموزش"]}
+];
 
-    function calculatePrice() {
-      const area = parseInt(document.getElementById('areaInput').value) || 0;
-      const type = document.getElementById('buildingType').value;
-      
-      let baseRate = 260000;
-      if (type === 'villa') baseRate = 360000;
-      if (type === 'office') baseRate = 310000;
+const grid=document.getElementById("serviceGrid");
+const choices=document.getElementById("serviceChoices");
 
-      let serviceMultiplier = selectedServices.size * 0.25;
-      if (selectedServices.size === 0) serviceMultiplier = 0.1;
+services.forEach((s,i)=>{
+  const card=document.createElement("article");
+  card.className="card";
+  card.innerHTML=`
+    <button class="service-button" type="button" aria-expanded="false">
+      <div class="service-art" aria-hidden="true">
+        <svg viewBox="0 0 100 100" role="img">
+          <rect x="8" y="8" width="84" height="84" rx="22" fill="#ffffff" stroke="#bfe7e9" stroke-width="2"/>
+          <circle cx="50" cy="43" r="24" fill="#dff7f7"/>
+          <text x="50" y="54" font-size="34" text-anchor="middle" fill="#078b98">${s.icon}</text>
+          <path d="M25 76 H75" stroke="#8ccfd3" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="service-name">${i+1}. ${s.name}</div>
+    </button>
+    <div class="details">
+      <p>${s.desc}</p>
+      <strong>تجهیزات احتمالی:</strong>
+      <ul>${s.items.map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>`;
+  card.querySelector("button").addEventListener("click",()=>{
+    card.classList.toggle("open");
+    card.querySelector("button").setAttribute("aria-expanded",card.classList.contains("open"));
+  });
+  grid.appendChild(card);
 
-      let minPrice = Math.round((area * baseRate * (1 + serviceMultiplier)) / 1000000);
-      let maxPrice = Math.round(minPrice * 1.3);
+  const label=document.createElement("label");
+  label.className="field";
+  label.innerHTML=`<span><input type="checkbox" class="service-check" value="${i}"> ${s.name}</span>`;
+  choices.appendChild(label);
+});
 
-      if (minPrice < 15) { minPrice = 15; maxPrice = 20; }
+function calculate(){
+  const area=Math.max(0,Number(document.getElementById("area").value)||0);
+  const level=Number(document.getElementById("level").value)||1;
+  const selected=[...document.querySelectorAll(".service-check:checked")];
+  const unitCosts=[3500000,5000000,4500000,6000000,8000000,7000000,2500000,3000000,2500000,4500000,3000000,2000000,2500000,1500000,2500000,3500000,4000000,5000000,6000000,10000000];
+  const base=selected.reduce((sum,box)=>sum+unitCosts[Number(box.value)],0);
+  const estimate=Math.round((base+area*150000)*level);
+  document.getElementById("price").textContent=
+    estimate.toLocaleString("fa-IR")+" تومان";
+}
+document.getElementById("calculateButton").addEventListener("click",calculate);
+document.getElementById("area").addEventListener("input",calculate);
+document.getElementById("level").addEventListener("change",calculate);
+choices.addEventListener("change",calculate);
+calculate();
 
-      document.getElementById('totalPrice').textContent = `حدود ${minPrice} الی ${maxPrice} میلیون تومان`;
-    }
+document.getElementById("menuButton").addEventListener("click",()=>{
+  const nav=document.getElementById("navLinks");
+  const open=nav.classList.toggle("show");
+  document.getElementById("menuButton").setAttribute("aria-expanded",String(open));
+});
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>{
+  document.getElementById("navLinks").classList.remove("show");
+  document.getElementById("menuButton").setAttribute("aria-expanded","false");
+}));
 
-    function printEstimate() {
-      const priceText = document.getElementById('totalPrice').textContent;
-      const area = document.getElementById('areaInput').value;
-      alert(`پیش‌فاکتور برآورد اولیه برای زیربنای ${area} مترمربع:\nبرآورد هزینه: ${priceText}\n\nجهت دریافت فاکتور رسمی با مهندس محمد ایرجی تماس بگیرید.`);
-    }
+const reviewList=document.getElementById("reviewList");
+const reviewForm=document.getElementById("reviewForm");
+const STORAGE_KEY="smarthome-arak-local-reviews-v1";
 
-    // Modal Logic
-    const detailsData = {
-      lighting: {
-        title: "💡 سیستم روشنایی هوشمند",
-        desc: "کنترل کامل تمام سرخط‌های نوری با گوشی تلفن همراه، کلیدهای لمسی شیشه‌ای مدرن و تعریف انواع سناریوهای روشنایی."
-      },
-      security: {
-        title: "🔐 سیستم امنیت و دزدگیر هوشمند",
-        desc: "پوشش کامل امنیت منزل با سنسورهای حرکتی، مگنت پنجره، قفل اثر انگشتی رمزی و اطلاع‌رسانی پیامکی و تماس."
-      },
-      climate: {
-        title: "🌡️ مدیریت سرمایش و گرمایش",
-        desc: "ترموستات‌های دیواری لمسی با قابلیت زمان‌بندی و تنظیم دمای دلخواه قبل از رسیدن به منزل."
-      },
-      curtain: {
-        title: "🪟 پرده برقی و شید",
-        desc: "اتوماسیون پرده‌ها با ریموت، تاچ‌پنل و برنامه هوشمند جهت استفاده حداکثری از نور طبیعی خورشید."
-      }
-    };
-
-    function openModal(key) {
-      const data = detailsData[key];
-      if (!data) return;
-      document.getElementById('modalBody').innerHTML = `
-        <h2 style="color: var(--accent-cyan); margin-bottom: 12px;">${data.title}</h2>
-        <p style="line-height: 1.8; color: #cbd5e1; font-size: 14px;">${data.desc}</p>
-        <button class="btn btn-primary" style="margin-top: 20px; font-size: 13px;" onclick="closeModalDirect()">متوجه شدم</button>
-      `;
-      document.getElementById('infoModal').classList.add('show');
-    }
-
-    function closeModal(e) {
-      if (e.target.id === 'infoModal') closeModalDirect();
-    }
-
-    function closeModalDirect() {
-      document.getElementById('infoModal').classList.remove('show');
-    }
-
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('formName').value;
-      alert(`با تشکر از شما ${name} عزیز. درخواست مشاوره شما برای مهندس محمد ایرجی ارسال شد و به زودی با شما تماس خواهیم گرفت.`);
-      e.target.reset();
-    }
-
-    window.addEventListener('scroll', () => {
-      const btn = document.getElementById('backToTop');
-      if (window.scrollY > 400) btn.classList.add('visible');
-      else btn.classList.remove('visible');
-    });
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+function loadReviews(){
+  reviewList.replaceChildren();
+  let reviews=[];
+  try{reviews=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");}catch(e){}
+  reviews.forEach(r=>{
+    const item=document.createElement("article");
+    item.className="review";
+    const title=document.createElement("strong");
+    title.textContent=r.name;
+    const stars=document.createElement("div");
+    stars.textContent="★".repeat(r.rating)+"☆".repeat(5-r.rating);
+    stars.style.color="#d99b18";
+    const text=document.createElement("p");
+    text.textContent=r.text;
+    item.append(title,stars,text);
+    reviewList.appendChild(item);
+  });
+  if(!reviews.length){
+    const empty=document.createElement("p");
+    empty.className="note";
+    empty.textContent="هنوز نظری ثبت نشده است.";
+    reviewList.appendChild(empty);
+  }
+}
+reviewForm.addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=document.getElementById("reviewName").value.trim();
+  const rating=Number(document.getElementById("reviewRating").value);
+  const text=document.getElementById("reviewText").value.trim();
+  if(!name||!text)return;
+  let reviews=[];
+  try{reviews=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");}catch(e){}
+  reviews.unshift({name,rating,text});
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(reviews.slice(0,30)));
+  }catch(e){
+    alert("ذخیره نظر در این مرورگر ممکن نیست.");
+    return;
+  }
+  reviewForm.reset();
+  loadReviews();
+});
+loadReviews();
+</script>
 </body>
 </html>
-```
